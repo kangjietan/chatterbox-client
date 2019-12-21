@@ -2,6 +2,7 @@ var MessagesView = {
 
   // $('#chats') is a <div> in the body
   $chats: $('#chats'),
+  $reload: $('#reload'),
 
   initialize: function() {
     Parse.readAll((data) => {
@@ -9,6 +10,11 @@ var MessagesView = {
       dataArray.forEach((chat) => {
         MessagesView.renderMessage.call(chat);
       });
+    });
+
+    MessagesView.$reload.on('click', () => {
+      MessagesView.$chats.html('');
+      MessagesView.initialize();
     });
   },
 

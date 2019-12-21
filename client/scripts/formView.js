@@ -19,6 +19,8 @@ var FormView = {
 
     // console.log(event.target);
     Parse.create(message);
+    $('form #message').val('');
+    MessagesView.initialize();
 
     console.log('click!');
   },

@@ -36,9 +36,17 @@ var RoomsView = {
 
   selectRoom: function (event) {
     const selectedRoomName = event.target.value;
-    var userChat = document.getElementsByClassName(selectedRoomName);
-    console.log(selectedRoomName);
-    console.log(userChat);
+    MessagesView.$chats.html('');
+    // Parse.readAll()
+    Parse.readAll( (data) => {
+      // filter objects by current new name
+      // const filteredArray = data.results.filter( () => )
+      data.results.forEach( (obj) => {
+        if (obj.roomname === selectedRoomName) {
+          MessagesView.renderMessage.call(obj);
+        }
+      } );
+    } );
   },
 
   // addRoom: function (event) {
