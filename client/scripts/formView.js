@@ -12,7 +12,7 @@ var FormView = {
     // var text = event.target.elements[0].value;
     // var userName = window.location.search.split("?username=")[1];
     var message = {
-      username: window.location.search.split("?username=")[1],
+      username: App.username,
       text: event.target.elements[0].value,
       roomname: "hrsf125-chatterbox-client"
     };
