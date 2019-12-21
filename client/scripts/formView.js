@@ -9,11 +9,18 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    var text = event.target.elements[0].value;
-    // var userName = $('input[name="username"]').val();
-    console.log(event.target.elements[0].value);
-    console.log('hello event', event);
-    // Parse.create(event.target.elements[0].value);
+    // var text = event.target.elements[0].value;
+    // var userName = window.location.search.split("?username=")[1];
+    var message = {
+      username: window.location.search.split("?username=")[1],
+      text: event.target.elements[0].value,
+      roomname: "hrsf125-chatterbox-client"
+    };
+    // console.log(event.target.elements[0].value);
+    // console.log('hello event', event);
+    // console.log(typeof window.location.search);
+    console.log(event);
+    Parse.create(message);
 
     console.log('click!');
   },
