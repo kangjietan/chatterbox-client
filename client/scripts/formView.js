@@ -10,13 +10,14 @@ var FormView = {
     // Stop the browser from submitting the form
     event.preventDefault();
 
+    console.log(event);
     var message = {
       username: App.username,
-      text: event.target.elements[0].value,
+      text: $('form #message').val()
       // roomname: location.href.split("/")[6]
     };
 
-    console.log(event);
+    // console.log(event.target);
     Parse.create(message);
 
     console.log('click!');

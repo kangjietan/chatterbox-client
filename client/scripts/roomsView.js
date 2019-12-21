@@ -20,6 +20,9 @@ var RoomsView = {
         RoomsView.renderRoom.call( { 'roomname': rooms } );
       });
     });
+
+    RoomsView.$select.on('change', RoomsView.selectRoom);
+    // RoomsView.$button.on('click', RoomsView.addRoom);
   },
 
   renderRoom: function() {
@@ -29,6 +32,16 @@ var RoomsView = {
     `);
     html = helper.call(this);
     RoomsView.$select.append(html);
-  }
+  },
 
+  selectRoom: function (event) {
+    const selectedRoomName = event.target.value;
+    var userChat = document.getElementsByClassName(selectedRoomName);
+    console.log(selectedRoomName);
+    console.log(userChat);
+  },
+
+  // addRoom: function (event) {
+
+  // }
 };
