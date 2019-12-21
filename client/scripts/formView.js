@@ -9,7 +9,12 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    
+    var text = event.target.elements[0].value;
+    // var userName = $('input[name="username"]').val();
+    console.log(event.target.elements[0].value);
+    console.log('hello event', event);
+    // Parse.create(event.target.elements[0].value);
+
     console.log('click!');
   },
 
