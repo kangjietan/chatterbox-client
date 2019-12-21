@@ -9,16 +9,13 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    // var text = event.target.elements[0].value;
-    // var userName = window.location.search.split("?username=")[1];
+
     var message = {
       username: App.username,
       text: event.target.elements[0].value,
-      roomname: location.href.split("/")[6]
+      // roomname: location.href.split("/")[6]
     };
-    // console.log(event.target.elements[0].value);
-    // console.log('hello event', event);
-    // console.log(typeof window.location.search);
+
     console.log(event);
     Parse.create(message);
 
