@@ -10,19 +10,22 @@ var FormView = {
     // Stop the browser from submitting the form
     event.preventDefault();
 
-    console.log(event);
-    var message = {
-      username: App.username,
-      text: $('form #message').val()
-      // roomname: location.href.split("/")[6]
-    };
+    if ($('form #message').val().length > 0) {
 
-    // console.log(event.target);
-    Parse.create(message);
-    $('form #message').val('');
-    MessagesView.initialize();
+      console.log(event);
+      var message = {
+        username: App.username,
+        text: $('form #message').val()
+        // roomname: location.href.split("/")[6]
+      };
 
-    console.log('click!');
+      // console.log(event.target);
+      Parse.create(message);
+      $('form #message').val('');
+      MessagesView.initialize();
+
+      console.log('click!');
+    }
   },
 
   setStatus: function(active) {
