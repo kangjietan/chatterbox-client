@@ -3,12 +3,12 @@ var RoomsView = {
   $button: $('#rooms button'),
   $select: $('#rooms select'),
 
-  initialize: function() {
+  initialize: function () {
     // GET request to have access to data
-    Parse.readAll( (data) => {
+    Parse.readAll((data) => {
       var dataArray = data.results;
       var roomNames = [];
-      dataArray.forEach( (chat) => {
+      dataArray.forEach((chat) => {
         if (chat.roomname) {
           roomNames.push(chat.roomname);
         }
@@ -16,8 +16,8 @@ var RoomsView = {
 
       // must take out scripts here
       var uniqueRoomNames = _.uniq(roomNames);
-      uniqueRoomNames.forEach( (rooms) => {
-        RoomsView.renderRoom.call( { 'roomname': rooms } );
+      uniqueRoomNames.forEach((rooms) => {
+        RoomsView.renderRoom.call({ 'roomname': rooms });
       });
     });
 
@@ -25,7 +25,7 @@ var RoomsView = {
     // RoomsView.$button.on('click', RoomsView.addRoom);
   },
 
-  renderRoom: function() {
+  renderRoom: function () {
     let html = '';
     var helper = _.template(`
       <option><%- this.roomname %></option>
@@ -38,15 +38,15 @@ var RoomsView = {
     const selectedRoomName = event.target.value;
     MessagesView.$chats.html('');
     // Parse.readAll()
-    Parse.readAll( (data) => {
+    Parse.readAll((data) => {
       // filter objects by current new name
       // const filteredArray = data.results.filter( () => )
-      data.results.forEach( (obj) => {
+      data.results.forEach((obj) => {
         if (obj.roomname === selectedRoomName) {
           MessagesView.renderMessage.call(obj);
         }
-      } );
-    } );
+      });
+    });
   },
 
   // addRoom: function (event) {

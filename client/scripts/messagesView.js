@@ -4,7 +4,7 @@ var MessagesView = {
   $chats: $('#chats'),
   $reload: $('#reload'),
 
-  initialize: function() {
+  initialize: function () {
     Parse.readAll((data) => {
       var dataArray = data.results;
       dataArray.forEach((chat) => {
@@ -18,7 +18,7 @@ var MessagesView = {
     });
   },
 
-  renderMessage: function() {
+  renderMessage: function () {
     // create an empty string
     let html = '';
     // use _.template to take object data and convert to html
