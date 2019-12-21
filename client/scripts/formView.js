@@ -14,7 +14,7 @@ var FormView = {
     var message = {
       username: App.username,
       text: event.target.elements[0].value,
-      roomname: "hrsf125-chatterbox-client"
+      roomname: location.href.split("/")[6]
     };
     // console.log(event.target.elements[0].value);
     // console.log('hello event', event);
